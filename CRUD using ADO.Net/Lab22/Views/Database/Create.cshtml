@@ -1,0 +1,14 @@
+﻿@model GetData;
+
+@{
+    Layout = "_Layout";
+    var title = "Data List";
+    ViewData["Title"] = title;
+}
+
+<form asp-controller="Database" asp-action="Create" method="POST">
+    <input type="number" placeholder="Enter Id" asp-for="Id"/>
+    <input type="text" placeholder="Enter Name" asp-for="Name" />
+    <input type="text" placeholder="Enter Gender" asp-for="Gender" />
+    <input type="submit" value="Add Data" class="btn btn-primary"/>
+</form>

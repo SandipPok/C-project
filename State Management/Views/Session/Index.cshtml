@@ -1,0 +1,13 @@
+﻿@inject IHttpContextAccessor _context;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div>
+    <ul style="list-style:none">
+        <li>Name: @_context.HttpContext.Session.GetString("Name")</li>
+        <li>Age: @_context.HttpContext.Session.GetInt32("Age")</li>
+    </ul>
+</div>

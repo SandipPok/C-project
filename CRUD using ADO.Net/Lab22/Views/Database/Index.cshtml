@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<GetData>
+
+@{
+    Layout = "_Layout";
+    var title = "Data List";
+    ViewData["Title"] = title;
+}
+
+<h3>@title</h3>
+
+<a asp-controller="Database" asp-action="Create" class="btn btn-secondary">Add Data</a>
+<table class="table table-bordered table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null)
+        {
+            <tr><td>No Data Available</td></tr>
+        }
+        else
+        {
+            @foreach (var data in Model)
+            {
+                <tr>
+                    <td>@data.Id</td>
+                    <td>@data.Name</td>
+                    <td>@data.Gender</td>
+                    <td>
+                        <a asp-controller="Database" asp-action="Update" asp-route-id="@data.Id">Edit</a>
+                        <a asp-controller="Database" asp-route-id="@data.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
